@@ -1,22 +1,25 @@
 from setuptools import setup, find_packages
 
 setup(
-    name="finalflash",  # The package name for PyPI
-    version="0.1",
+    name="finalflash",
+    version="0.0.1",
     author="Arpan Pal",
     author_email="arpan522000@gmail.com",
     description="A tool for uGMRT primary beam correction",
+    long_description=open('README.md').read(),
+    long_description_content_type='text/markdown',
+    url="https://github.com/arpan-52/finalflash",  # Replace with your repository URL
     packages=find_packages(),
     install_requires=[
         "numpy",
-        "astropy"
+        "astropy",
+        "pyregion",
     ],
     entry_points={
         'console_scripts': [
             'finalflash=finalflash.beam_corrector:main',
         ],
     },
-    url="https://github.com/arpan-52",  # Replace with your repository
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
