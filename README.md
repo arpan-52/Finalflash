@@ -3,7 +3,7 @@
 
 **FinalFlash** is a tool for correcting radio interferometric images using the uGMRT primary beam model. Inspired by Vegeta’s ultimate attack in Dragon Ball Z, this tool provides accurate corrections for uGMRT FITS images.
 
-![FinalFlash Animation](URL_TO_YOUR_GIF)
+![FinalFlash Animation](https://github.com/arpan-52/Finalflash/blob/main/vegeta.gif)
 
 ## Installation
 
