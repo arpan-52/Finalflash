@@ -6,7 +6,7 @@
 <p align="center">
   <img src="https://github.com/arpan-52/Finalflash/blob/main/vegeta.gif" alt="FinalFlash Animation" width="500"/>
   <br/>
-  <i>Actual Vegeta's Final Flash</i>
+  <i>Vegeta's Final Flash</i>
 </p>
 
 ## Installation
