@@ -1,10 +1,16 @@
-# finalflash
 
-`finalflash` is a tool that corrects radio interferometric images using the uGMRT primary beam model for different observing bands.
+# FinalFlash
+
+**FinalFlash** is a tool for correcting radio interferometric images using the uGMRT primary beam model. Inspired by Vegeta’s ultimate attack in Dragon Ball Z, this tool provides accurate corrections for uGMRT FITS images.
+
+![FinalFlash Animation](URL_TO_YOUR_GIF)
 
 ## Installation
 
-Install using pip: pip install finalflash
+Install FinalFlash via pip:
+
+```bash
+pip3 install finalflash
 
 
 
