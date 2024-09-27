@@ -105,8 +105,14 @@ def primary_beam_model(frequency_ghz, radius_arcmin, coeffs):
 
 def correct_fits_with_primary_beam(input_fits, output_fits, beam_threshold=0.01):
     """Apply primary beam correction to a FITS file."""
-    # Flatten the FITS file to a 2D image
+    # Flatten the FITS file to a 2D image, but keep the original header
+    original_header = fits.getheader(input_fits)
     header, data = flatten(input_fits)
+    
+    # Add the FinalFlash version and date to the end of the FITS history
+    from datetime import datetime
+    version_info = f"finalflash v0.3.1 {datetime.now().strftime('%Y-%m-%dT%H:%M:%S')}"
+    original_header.append(('HISTORY', version_info), end=True)  # Append at the end of the header
     
     # Get frequency information from the header (assuming CRVAL3 holds frequency in Hz)
     frequency_hz = header.get('FREQ')
@@ -137,9 +143,24 @@ def correct_fits_with_primary_beam(input_fits, output_fits, beam_threshold=0.01)
     with np.errstate(divide='ignore', invalid='ignore'):
         corrected_data = np.where(np.abs(beam) >= beam_threshold, data / beam, 0)
 
-    # Write the corrected data to a new FITS file
-    fits.writeto(output_fits, corrected_data, header, overwrite=True)
+    # Check the original data type and adjust the BITPIX accordingly
+    original_dtype = data.dtype
+    if original_dtype == np.dtype('>f4'):
+        original_header['BITPIX'] = -32  # 32-bit float
+        corrected_data = corrected_data.astype('>f4')
+    elif original_dtype == np.dtype('>f2'):
+        original_header['BITPIX'] = 16  # 16-bit integer
+        corrected_data = corrected_data.astype('>i2')
+    elif original_dtype == np.dtype('>f8'):
+        original_header['BITPIX'] = -64  # 64-bit float
+        corrected_data = corrected_data.astype('>f8')
+    else:
+        raise ValueError(f"Unsupported data type: {original_dtype}")
+
+    # Write the corrected data to a new FITS file with the original header
+    fits.writeto(output_fits, corrected_data, original_header, overwrite=True)
     print(f"Primary beam corrected FITS file saved to {output_fits}")
+
 
 def main():
     parser = argparse.ArgumentParser(description='Apply primary beam correction to a FITS image.')
