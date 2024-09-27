@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: finalflash
+Version: 0.3
+Summary: A tool for uGMRT primary beam correction
+Home-page: https://github.com/arpan-52/Finalflash
+Author: Arpan Pal
+Author-email: arpan522000@gmail.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+
+# finalflash
+
+`finalflash` is a tool that corrects radio interferometric images using the uGMRT primary beam model for different observing bands.
+
+## Installation
+
+Install using pip: pip install finalflash
+
+
+
+After installation, the command-line tool `finalflash` can be used to correct FITS files.
+
+finalflash <input_fits> <output_fits>

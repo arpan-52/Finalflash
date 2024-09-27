@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="finalflash",
-    version="0.2",
+    version="0.3",
     author="Arpan Pal",
     author_email="arpan522000@gmail.com",
     description="A tool for uGMRT primary beam correction",
@@ -13,7 +13,6 @@ setup(
     install_requires=[
         "numpy",
         "astropy",
-        "pyregion",
     ],
     entry_points={
         'console_scripts': [
