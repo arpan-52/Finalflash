@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="finalflash",
-    version="0.3.3",
+    version="0.3.4",
     author="Arpan Pal",
     author_email="arpan522000@gmail.com",
     description="A tool for uGMRT primary beam correction",
