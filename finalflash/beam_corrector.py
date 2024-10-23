@@ -112,6 +112,9 @@ def primary_beam_model(frequency_ghz, radius_arcmin, coeffs):
 
 def correct_fits_with_primary_beam(input_fits, output_fits, beam_threshold=0.01):
     """Apply primary beam correction to a FITS file."""
+    print("Developed by Arpan Pal at NCRA-TIFR in 2024. In case of usage, cite papers from Github")
+    print("Starting the attack !!!!")
+    print("Gathering relevant informations from the FITS image......................")
     # Flatten the FITS file to a 2D image, but keep the original header
     original_header = fits.getheader(input_fits)
     header, data = flatten(input_fits)
@@ -145,11 +148,11 @@ def correct_fits_with_primary_beam(input_fits, output_fits, beam_threshold=0.01)
     
     # Compute the primary beam model for each pixel
     beam = primary_beam_model(frequency_ghz, r, band_coeffs)
-    
+    print("Calculated Beams!")
     # Check where the absolute value of the beam is less than the threshold
     with np.errstate(divide='ignore', invalid='ignore'):
         corrected_data = np.where(np.abs(beam) >= beam_threshold, data / beam, 0)
-
+    print("Beams applied to input FITS image !!!")
     # Check the original data type and adjust the BITPIX accordingly
     original_dtype = data.dtype
     if original_dtype == np.dtype('>f4'):
@@ -164,9 +167,10 @@ def correct_fits_with_primary_beam(input_fits, output_fits, beam_threshold=0.01)
     else:
         raise ValueError(f"Unsupported data type: {original_dtype}")
 
-    # Write the corrected data to a new FITS file with the original header
+    # Write the corrected data to a new FITS file with the original heade
     fits.writeto(output_fits, corrected_data, original_header, overwrite=True)
     print(f"Primary beam corrected FITS file saved to {output_fits}")
+    print("Finalflash done 💥💥💥💥💥💥")
 
 
 def main():
