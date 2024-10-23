@@ -2,12 +2,12 @@ from astropy.io import fits
 import numpy as np
 import argparse
 
-# Define polynomial coefficients for each band
+# Define polynomial coefficients for each band (Updated with new coefficients)
 POLY_COEFFS = {
-    'Band-2': (-3.089, 39.314, -23.011, 5.037),
-    'Band-3': (-3.129, 38.816, -21.608, 4.483),
-    'Band-4': (-3.263, 42.618, -25.580, 5.823),
-    'Band-5': (-2.614, 27.594, -13.268, 2.395),
+    'Band-2': (-2.83, 33.564, -18.026, 3.588),  # Updated coefficients for Band 2
+    'Band-3': (-2.939, 33.312, -16.659, 3.066),  # Updated coefficients for Band 3
+    'Band-4': (-3.190, 38.642, -20.471, 3.964),  # Updated coefficients for Band 4
+    'Band-5': (-2.608, 27.357, -13.091, 2.368),  # Updated coefficients for Band 5
 }
 
 def find_freq(header):
