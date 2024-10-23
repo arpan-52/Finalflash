@@ -14,20 +14,27 @@ def find_freq(header):
     """
     Find frequency value in the FITS header.
     """
+    print("Searching for frequency in the header...")
+    
     # Try to find frequency in common places
     for i in range(5):
         ctype_key = 'CTYPE%i' % i
         crval_key = 'CRVAL%i' % i
         if ctype_key in header and 'FREQ' in header[ctype_key]:
-            return header.get(crval_key)
+            freq = header.get(crval_key)
+            print(f"Found frequency in CTYPE: {ctype_key}, CRVAL: {crval_key} -> {freq}")
+            return freq
     
     # If not found, look for specific keywords
     freq = header.get('RESTFRQ') or header.get('FREQ')
     if freq:
+        print(f"Found frequency in RESTFRQ or FREQ: {freq}")
         return freq
     
-    # If nothing found, return None
+    # If nothing found, print and return None
+    print("Frequency not found in the header.")
     return None
+
 
 def flatten(filename, channel=0, freqaxis=0):
     """Flatten a FITS file to create a 2D image. Returns new header and data."""
@@ -115,7 +122,7 @@ def correct_fits_with_primary_beam(input_fits, output_fits, beam_threshold=0.01)
     original_header.append(('HISTORY', version_info), end=True)  # Append at the end of the header
     
     # Get frequency information from the header (assuming CRVAL3 holds frequency in Hz)
-    frequency_hz = header.get('FREQ')
+    frequency_hz = find_freq(header)
     if frequency_hz is None:
         raise ValueError('Frequency information (FREQ) not found in the FITS header.')
     frequency_ghz = frequency_hz / 1e9  # Convert to GHz
