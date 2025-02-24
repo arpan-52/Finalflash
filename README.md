@@ -25,6 +25,10 @@ pip3 install finalflash
 
 finalflash <input.fits> <output.fits>
 ```
+## Version History
+
+version 0.3.4. - Heavily tested for single-frequency FITS file corrections.
+version 0.3.5. - Experimental version for both single and frequency-cube corrections. 
 
 ## Citation
 
