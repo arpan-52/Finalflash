@@ -23,13 +23,17 @@ pip3 install finalflash
 
 ```bash
 
-finalflash <input.fits> <output.fits>
+finalflash <input.fits> <output.fits> [--beam threshold --jvla]
 ```
 ## Version History
 
 version 0.3.4. - Heavily tested for single-frequency FITS file corrections.
 
 version 0.3.5. - Experimental version for both single and frequency-cube corrections. 
+
+version 0.3.6. - Cube correction with proper header retention for both cubes and single frequency fits images.
+
+version 0.3.7  - Manual beam threshold and support for JVLA beams.
 
 ## Citation
 
