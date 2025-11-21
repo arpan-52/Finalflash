@@ -17,7 +17,7 @@ Install Finalflash via pip:
 
 ```bash
 
-pip3 install finalflash
+pip install finalflash
 ```
 ## Usage
 
