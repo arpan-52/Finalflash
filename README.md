@@ -1,6 +1,6 @@
 # Finalflash
 
-**Finalflash** is a tool for correcting radio interferometric images using the uGMRT primary beam model. Inspired by Vegeta’s ultimate attack in Dragon Ball Z, this tool provides accurate corrections for uGMRT FITS images.
+**Finalflash** is a tool for correcting radio interferometric images using the uGMRT primary beam model. Inspired by Vegeta’s ultimate attack in Dragon Ball Z, this tool provides accurate corrections for uGMRT and JVLA FITS images.
 
 
 <p align="center">
@@ -41,7 +41,6 @@ If **Finalflash** saves your analysis from the chaos of uncorrected primary beam
 
 *"Primary beam corrections were performed using Finalflash, hosted at [https://github.com/arpan-52/Finalflash](https://github.com/arpan-52/Finalflash)."*  
 
-Until it makes its debut on ASCL or I finally write my holography paper, your acknowledgement would be *super* appreciated. As some random user in the internet mentioned:
-"Science without ethics is like a spaceship without fuel—sure, it looks good, but it’s going nowhere."
+Until it makes its debut on ASCL or I finally write my holography paper, your acknowledgement would be *super* appreciated.
 
 
